@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebración Graduación - Katherine Illescas, Ing.</title>
+    <!-- Fuentes desde Google Fonts (Fira Code + Inter) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* === PALETA NIGHT OWL (VS Code Theme) === */
+        :root {
+            --no-bg: #011627;          /* Fondo principal */
+            --no-card: #0b253a;        /* Fondo de tarjetas / editor */
+            --no-editor-header: #01111d;/* Encabezado del editor */
+            --no-border: #1d3b53;      /* Bordes */
+            --no-text: #d6deeb;        /* Texto genérico */
+            --no-cyan: #80CBC4;        /* Variables / Métodos */
+            --no-green: #7FDBCA;       /* Strings / Confirmaciones */
+            --no-yellow: #ECC48D;      /* Atributos / Nombres */
+            --no-blue: #82AAFF;        /* Funciones / Enlaces */
+            --no-magenta: #C792EA;     /* Keywords / Acentos */
+            --no-orange: #F78C6C;      /* Números / Badges */
+            
+            --font-code: 'Fira Code', monospace;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--no-bg);
+            color: var(--no-text);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            padding: 20px 12px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .vscode-window {
+            width: 100%;
+            max-width: 720px;
+            background-color: var(--no-card);
+            border: 1px solid var(--no-border);
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        /* === BARRA SUPERIOR VS CODE === */
+        .window-header {
+            background-color: var(--no-editor-header);
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--no-border);
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        .dot-red { background-color: #ff5f56; }
+        .dot-yellow { background-color: #ffbd2e; }
+        .dot-green { background-color: #27c93f; }
+
+        .tab {
+            background-color: var(--no-card);
+            color: var(--no-cyan);
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+            padding: 6px 16px;
+            border-radius: 6px 6px 0 0;
+            border-top: 2px solid var(--no-blue);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* === CONTENIDO PRINCIPAL === */
+        .window-content {
+            padding: 25px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .section-card {
+            background-color: rgba(1, 22, 39, 0.6);
+            border: 1px solid var(--no-border);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .code-tag {
+            font-family: var(--font-code);
+            font-size: 0.8rem;
+            color: var(--no-magenta);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        h1 {
+            color: var(--no-yellow);
+            font-size: 1.8rem;
+            line-height: 1.3;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: var(--no-text);
+            font-size: 0.98rem;
+        }
+
+        /* === COMPONENTE COUNTDOWN === */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 18px;
+            text-align: center;
+        }
+
+        .count-box {
+            background-color: var(--no-card);
+            border: 1px solid var(--no-border);
+            padding: 10px 5px;
+            border-radius: 6px;
+        }
+
+        .count-num {
+            font-family: var(--font-code);
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--no-green);
+        }
+
+        .count-label {
+            font-size: 0.7rem;
+            color: var(--no-cyan);
+            text-transform: uppercase;
+        }
+
+        /* === COMPONENTE DETALLES === */
+        .details-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 10px;
+        }
+
+        @media(min-width: 550px) {
+            .details-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+
+        .detail-item {
+            background: var(--no-card);
+            border: 1px solid var(--no-border);
+            padding: 12px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .detail-title {
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            color: var(--no-magenta);
+        }
+
+        .detail-value {
+            font-weight: 600;
+            color: #ffffff;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        /* Palette Swatches Dresscode */
+        .color-palette {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .swatch {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 2px solid var(--no-border);
+        }
+
+        /* === ESTILO DE BOTONES UNIFICADO === */
+        .btn {
+            background-color: var(--no-green);
+            color: #011627;
+            border: 1px solid var(--no-green);
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-family: var(--font-code);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+        }
+
+        /* HOVER: Fondo oscuro y letras blancas */
+        .btn:hover {
+            background-color: #0e3a47;
+            color: #ffffff;
+            border-color: var(--no-green);
+        }
+
+        /* ACTIVE: Al presionar/hacer click */
+        .btn:active {
+            background-color: #08212b;
+            color: #ffffff;
+            transform: scale(0.98);
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-size: 0.85rem;
+            color: var(--no-cyan);
+            font-family: var(--font-code);
+        }
+
+        input[type="text"], select {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--no-card);
+            border: 1px solid var(--no-border);
+            border-radius: 6px;
+            color: #ffffff;
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        input:focus, select:focus {
+            border-color: var(--no-blue);
+        }
+
+        .rsvp-response {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 6px;
+            background-color: var(--no-card);
+            border-left: 4px solid var(--no-yellow);
+            display: none;
+        }
+
+        .wa-link {
+            color: var(--no-green);
+            font-weight: 600;
+            text-decoration: underline;
+        }
+
+        /* === FOOTER / BARRA DE ESTADO === */
+        .status-bar {
+            background-color: var(--no-editor-header);
+            border-top: 1px solid var(--no-border);
+            padding: 6px 15px;
+            font-family: var(--font-code);
+            font-size: 0.75rem;
+            color: var(--no-text);
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vscode-window">
+        <!-- BARRA DE PESTAÑAS TIPO VS CODE -->
+        <div class="window-header">
+            <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+            </div>
+            <div class="tab">
+                <span>📄</span> celebration.js
+            </div>
+            <div></div>
+        </div>
+
+        <!-- CONTENIDO DE LA INVITACIÓN -->
+        <div class="window-content">
+
+            <!-- 1. HERO SECTION -->
+            <section class="section-card" style="text-align: center;">
+                <span class="code-tag">const STATUS = "200_OK_GRADUATED";</span>
+                <h1>Hello World!</h1>
+                <p style="color: var(--no-cyan); font-size: 1.1rem; font-weight: 600; margin-bottom: 8px;">
+                    <code> Es hora de celebrar que Kathy Illescas es Ingeniera oficialmente </code>
+                </p>
+                <p style="font-size: 0.9rem; color: var(--no-text);">
+                    Tras miles de líneas de código, planeación de proyectos y litros de café, ¡Es momento de festejar!
+                </p>
+
+                <!-- COUNTDOWN -->
+                <div class="countdown-grid">
+                    <div class="count-box">
+                        <div class="count-num" id="days">--</div>
+                        <div class="count-label">Días</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-num" id="hours">--</div>
+                        <div class="count-label">Horas</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-num" id="minutes">--</div>
+                        <div class="count-label">Min</div>
+                    </div>
+                    <div class="count-box">
+                        <div class="count-num" id="seconds">--</div>
+                        <div class="count-label">Seg</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 2. DETALLES DEL EVENTO -->
+            <section class="section-card">
+                <span class="code-tag">// EVENT_CONFIG</span>
+                <div class="details-grid">
+                    <div class="detail-item">
+                        <div class="detail-title"> CUÁNDO</div>
+                        <div class="detail-value">Sábado, 22 de Agosto</div>
+                        <div style="font-size: 0.8rem; color: var(--no-cyan);">01:30 PM</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-title"> DÓNDE</div>
+                        <div class="detail-value"> Pueblo Real Tecpán</div>
+                        <div style="font-size: 0.8rem; color: var(--no-text);">Salón San Vicente</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-title"> DRESS CODE</div>
+                        <div class="detail-value" style="color: var(--no-white);">Formal</div>
+                        
+
+                    </div>
+                </div>
+
+                <!-- Botones de Acción -->
+                <div style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
+                    <a href="https://maps.app.goo.gl/HZvUGs5QkkUJmRXZ7" target="_blank" class="btn" style="flex: 1; min-width: 180px;">
+                        [ Abrir en Maps ]
+                    </a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Graduación+Katherine+Illescas&dates=20260822T190000Z/20260822T220000Z&details=Celebración+de+Graduación&location=Restaurante+Pueblo+Real+Tecpán" target="_blank" class="btn" style="flex: 1; min-width: 180px;">
+                        [ Agendar en Calendario ]
+                    </a>
+                </div>
+            </section>
+
+            <!-- 3. BÚSQUEDA Y CONFIRMACIÓN DE PASES -->
+            <section class="section-card">
+                <span class="code-tag">async function rsvpModule()</span>
+                <h2 style="color: #fff; font-size: 1.2rem; margin-bottom: 12px;">Confirmar Asistencia</h2>
+
+                <!-- Paso 1: Búsqueda -->
+                <div class="input-group">
+                    <label for="search-input">Ingresa tu nombre y apellido tal como te llegó en el sobre y espera un momento:</label>
+                    <div style="display: flex; gap: 8px;">
+                        <input type="text" id="search-input" placeholder="Ej: Juan Pérez">
+                        <button class="btn" onclick="buscarInvitado()" style="width: auto; white-space: nowrap;">
+                            [ Buscar ]
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Paso 2 & 3: Respuesta Dinámica -->
+                <div id="rsvp-container" class="rsvp-response">
+                    <div id="rsvp-found" style="display: none;">
+                        <p style="margin-bottom: 12px;">
+                            ¡Hola <strong id="guest-name" style="color: var(--no-yellow);">...</strong>! Tienes <span id="guest-passes" style="color: var(--no-magenta); font-weight: 600;">X</span> pases asignados.
+                        </p>
+                        
+                        <div class="input-group">
+                            <label for="passes-select">Pases a confirmar:</label>
+                            <select id="passes-select">
+                                <!-- Se llena dinámicamente con JS -->
+                            </select>
+                        </div>
+
+                        <button class="btn" style="width: 100%; margin-top: 10px;" onclick="confirmarAsistencia()">
+                            [ Confirmar Asistencia ]
+                        </button>
+                    </div>
+
+                    <div id="rsvp-not-found" style="display: none; color: var(--no-orange);">
+                        <p>
+                            No encontramos una invitación con ese nombre. Verifica la ortografía o escríbeme directamente por 
+                            <a href="https://wa.me/50200000000" target="_blank" class="wa-link">WhatsApp</a>.
+                        </p>
+                    </div>
+
+                    <div id="rsvp-success" style="display: none; color: var(--no-green); text-align: center;">
+                        <p style="font-size: 1.1rem; font-weight: 600;">
+                            ¡Listo! Tu asistencia ha sido registrada. ¡Nos vemos en el almuerzo! 
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. SECCIÓN REGALOS / DETALLES -->
+            <section class="section-card" style="border-left: 4px solid var(--no-magenta);">
+                <span class="code-tag">// RETURN_VALUE: Tu presencia</span>
+                <h3 style="color: #fff; font-size: 1.05rem; margin-bottom: 6px;">Un detalle especial</h3>
+                <p style="font-size: 0.9rem; color: var(--no-text);">
+                   <code> El mejor regalo para este día es contar con tu compañía. Si deseas tener un gesto adicional conmigo, será recibido con muchísimo cariño.</code>
+                </p>
+            </section>
+
+        </div>
+
+        <!-- 6. FOOTER / BARRA DE ESTADO TIPO VS CODE -->
+        <div class="status-bar">
+            <span>JavaScript</span>
+        </div>
+    </div>
+
+        <script>
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxnx_Ex_5ioUTqwbUEzFOHbr4Kmkfnot1bdHfg7RMUEtyYm93Egc2a6Ri056Q0NtOdphQ/exec";
+
+    // 1. CUENTA REGRESIVA
+    const targetDate = new Date('August 22, 2026 13:00:00').getTime();
+
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference > 0) {
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
+
+    // 2. BUSCAR INVITADO REAL EN GOOGLE SHEETS
+    let currentGuestRow = null;
+
+    async function buscarInvitado() {
+        const nameInput = document.getElementById('search-input').value.trim();
+        const container = document.getElementById('rsvp-container');
+        const foundDiv = document.getElementById('rsvp-found');
+        const notFoundDiv = document.getElementById('rsvp-not-found');
+        const successDiv = document.getElementById('rsvp-success');
+
+        if (!nameInput) {
+            alert("Por favor ingresa un nombre para buscar.");
+            return;
+        }
+
+        container.style.display = 'block';
+        foundDiv.style.display = 'none';
+        notFoundDiv.style.display = 'none';
+        successDiv.style.display = 'none';
+
+        try {
+            const response = await fetch(`${SCRIPT_URL}?nombre=${encodeURIComponent(nameInput)}`);
+            const data = await response.json();
+
+            if (data.result === "success") {
+                currentGuestRow = data.row;
+                document.getElementById('guest-name').innerText = data.nombre;
+                
+                // Mostrar pases de adultos y niños
+                let textoPases = `${data.adultos} adulto(s)`;
+                if (data.ninos > 0) {
+                    textoPases += ` y ${data.ninos} niño(s)`;
+                }
+                document.getElementById('guest-passes').innerText = textoPases;
+
+                // Generar opciones en el select
+                const select = document.getElementById('passes-select');
+                select.innerHTML = '';
+
+                // Opciones para adultos
+                for (let a = data.adultos; a >= 1; a--) {
+                    if (data.ninos > 0) {
+                        for (let n = data.ninos; n >= 0; n--) {
+                            const option = document.createElement('option');
+                            option.value = `${a} Adulto(s), ${n} Niño(s)`;
+                            option.text = `${a} Adulto(s) y ${n} Niño(s)`;
+                            select.appendChild(option);
+                        }
+                    } else {
+                        const option = document.createElement('option');
+                        option.value = `${a} Adulto(s)`;
+                        option.text = `${a} Adulto(s)`;
+                        select.appendChild(option);
+                    }
+                }
+
+                const optZero = document.createElement('option');
+                optZero.value = "No podré asistir";
+                optZero.text = "No podré asistir";
+                select.appendChild(optZero);
+
+                foundDiv.style.display = 'block';
+            } else {
+                notFoundDiv.style.display = 'block';
+            }
+        } catch (error) {
+            console.error("Error al buscar:", error);
+            alert("Hubo un problema al consultar la lista. Intenta nuevamente.");
+        }
+    }
+
+    // 3. ENVIAR CONFIRMACIÓN A GOOGLE SHEETS
+    async function confirmarAsistencia() {
+        const seleccion = document.getElementById('passes-select').value;
+        
+        try {
+            await fetch(SCRIPT_URL, {
+                method: "POST",
+                mode: "no-cors",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({
+                    row: currentGuestRow,
+                    confirmados: seleccion
+                })
+            });
+
+            document.getElementById('rsvp-found').style.display = 'none';
+            document.getElementById('rsvp-success').style.display = 'block';
+        } catch (error) {
+            console.error("Error al guardar:", error);
+            alert("No se pudo registrar tu respuesta. Por favor intenta de nuevo.");
+        }
+    }
+</script>
+</body>
+</html>
